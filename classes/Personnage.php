@@ -7,6 +7,7 @@ class Personnage {
     // Mais les classes enfants vont hériter de cette propriété
     // - private $id;
     // + protected $id;
+    private static $NumInstances;
     protected $id;
     protected $nom;
     protected $vie;
@@ -24,6 +25,7 @@ class Personnage {
         $this->y = 0;
         $this->vie = 50;
 
+
         // A chaque fois que le constructeur de ma classe personnage , je vais incrémenter la propriété statique $numInstances
         // Cela va me permettre de connaitre le nombre d'instances créées
         self::$numInstances++;
@@ -31,9 +33,11 @@ class Personnage {
         // en elle même et pas à ses instances
     }
 
+
     public static function getNumInstances() {
         // Complétez le code ici
-        return
+       return static ::$numInstances;
+
     }
 
     // Méthode permettant de déplacer le personnage vers la droite
